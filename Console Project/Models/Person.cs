@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Project.Models
+namespace Console_Project.Model
 {
+
     public class Person
     {
         private readonly int id;
@@ -19,36 +20,41 @@ namespace Console_Project.Models
             this.firstName = firstName;
             this.lastName = lastName;
         }
-       
-       
-        // public propereties to access private field while getting and setting
+
+        // public properties to access private field while getting and setting
 
         public int Id => this.id;
 
         public string FirstName
         {
-            get { return FirstName; }
+            get { return firstName; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Firstname cannot be null or empty");                    }
+                    throw new ArgumentException("FirstName cannot be null or empty.");
+                }
                 else
-                    FirstName = value;
+                    firstName = value;
+
             }
+
         }
         public string LastName
         {
-            get { return LastName; }
+            get { return lastName; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Lastname cannot be null or empty");
+                    throw new ArgumentException("LastName cannot be null or empty.");
                 }
                 else
-                    LastName = value;
+                    lastName = value;
+
             }
+
         }
+
     }
 }

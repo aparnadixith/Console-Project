@@ -1,22 +1,26 @@
-using Console_Project.Models;
-using Newtonsoft.Json.Bson;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Console_Project.Model;
 
-namespace TestProject1
+namespace ConsoleCoreTesting
 {
     public class PersonTest
     {
         [Fact]
         public void Constructor_ShouldInitializeFields()
         {
-            //Arrage
+            // Arrange
             int expectedId = 1;
-            string expectedFirstName = "Avani";
-            string expectedLastName = "Hunagund";
+            string expectedFirstName = "Aparna";
+            string expectedLastName = "Dixith";
 
-            //Act
+            // Act
             Person person = new Person(expectedId, expectedFirstName, expectedLastName);
 
-            //Assert
+            // Assert
             Assert.Equal(expectedId, person.Id);
             Assert.Equal(expectedFirstName, person.FirstName);
             Assert.Equal(expectedLastName, person.LastName);
@@ -26,32 +30,30 @@ namespace TestProject1
 
         public void FirstName_SetValidValue_ShouldUpdateValue()
         {
-            //Arrange
-            Person person = new Person(1, "Avani", "Hunagund");
-            string newFirstName = "Aparna";
+            // Arrange
+            Person person = new Person(1, "Aparna", "Dixith");
+            string newFirstName = "Avani";
 
-            //Act
+            // Act
             person.FirstName = newFirstName;
 
-            //Assert
+            // Assert
             Assert.Equal(newFirstName, person.FirstName);
-
         }
+
         [Fact]
 
         public void LastName_SetValidValue_ShouldUpdateValue()
         {
-            //Arrange
-            Person person = new Person(1, "Aparna", "Hunagund");
-            string newLastName = "Dixith";
+            // Arrange
+            Person person = new Person(1, "Avani", "Dixith");
+            string newLastName = "Hunagund";
 
-            //Act
+            // Act
             person.LastName = newLastName;
 
-            //Assert
+            // Assert
             Assert.Equal(newLastName, person.LastName);
-
         }
-   
     }
 }

@@ -1,30 +1,35 @@
-﻿using System;
+﻿
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Console_Project.Model;
 
-namespace Console_Project.Models
+namespace Console_Project.Model
 {
-    public class ToDo
+
+    public class Todo
     {
-        //Private fields
+        // Private fields
         private readonly int id;
         private string description;
         private bool done;
         private Person assignee;
 
-        //Constructor
-        public ToDo(int id, string description)
+        // Constructor
+        public Todo(int id, string description)
         {
             this.id = id;
-            this.description = description; 
+            Description = description;
             done = false;
         }
 
-
-        //Properties
+        // Properties
         public int Id => id;
+
         public string Description
         {
             get => description;
@@ -32,23 +37,23 @@ namespace Console_Project.Models
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException("Description cannot be null or empty.");
+                    throw new ArgumentException("Description cannot be null or empty.");
                 }
                 description = value;
             }
-
         }
+
         public bool Done
         {
             get => done;
             set => done = value;
         }
+
         public Person Assignee
         {
             get => assignee;
             set => assignee = value;
         }
-        
     }
-
 }
+
